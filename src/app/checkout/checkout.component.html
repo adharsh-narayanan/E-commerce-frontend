@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="row w-100">
+    <div class="col-md-1"></div>
+    <div class="col-md-5 p-5">
+        <img src="https://static.vecteezy.com/system/resources/previews/000/101/522/non_2x/vector-delivery-man.jpg"
+            width="100%" alt="">
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <form *ngIf="!proceedtoPaymentstatus" class="border shadow p-5" [formGroup]="checkoutForm" >
+            <h2 class="text-center mb-3">Delivery Address</h2>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Name</label>
+                <input  type="text" class="form-control" name="uname" formControlName="uname" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput2">flat number</label>
+                <input type="text" class="form-control" name="flat" formControlName="flat" id="exampleFormControlInput2" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput3">Address</label>
+                <input  type="text" class="form-control" name="place" formControlName="place" id="exampleFormControlInput3" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput4">pincode</label>
+                <input  type="text" class="form-control" name="pincode" formControlName="pincode" id="exampleFormControlInput4" placeholder="">
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-warning  me-3 " (click)="cancel()" >Cancel </button>
+                <button class="btn btn-success  me-3 " (click)="proceedToPay()" >Proceed to payment </button>
+
+            </div>
+
+           
+        </form>
+
+
+        <div *ngIf="proceedtoPaymentstatus" class="shadow p-5">
+            <h3>Delivery Address Confirmation</h3>
+            <h4>Name:<span class="text-primary">{{checkoutForm.value.uname}}</span></h4>
+            <h4>Apartment/flat/house number:<span class="text-primary"> {{checkoutForm.value.flat}}</span></h4>
+            <h4>place: <span class="text-primary">{{checkoutForm.value.place}}</span></h4>
+            <h4>Pin code:<span class="text-primary"> {{checkoutForm.value.pincode}}</span></h4>
+            <h4>Grand Total:<span class="text-danger">$ {{grandTotal}}</span></h4>
+
+            <div *ngIf="!paymentStatus" class="d-flex justify-content-between mt-4">
+                <button class="btn btn-warning  w-25 me-3 " (click)="back()">Back </button>
+                <button class="btn btn-success w-25 me-3 " (click)="payment()">Pay </button>
+
+            </div>
+            <div  *ngIf="paymentStatus">
+                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-1"></div>
+
+
+</div>

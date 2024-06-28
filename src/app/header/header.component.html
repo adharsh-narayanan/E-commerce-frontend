@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md bg-warning p-4">
+    <div class="container-fluid ">
+        <a class="navbar-brand fw-bolder " href="#"><i class="fa-brands fa-slack me-2 fa-spin fa-2x"></i>Globomart</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+         <div class="nav-content ">
+                <form class="d-flex search " role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success me-2" type="submit">Search</button>
+                </form>
+                <div class="buttons">
+    
+                    <div class=" ">
+                        <button class="btn btn-outline-light " routerLink="/wishlist"> <i class="fa-solid fa-heart me-2"></i>Wishlist <span
+                                class="badge text-bg-secondary">{{wishlistcount}}</span></button>
+                    </div>
+                    <div class="">
+                        <button class="btn btn-outline-light ms-2" routerLink="/cart"><i class="fa-solid fa-cart-shopping me-2"></i>Cart <span
+                                class="badge text-bg-secondary">{{cartCount}}</span></button>
+                    </div>
+                    <div class="" *ngIf="!loginUsername">
+                        <a href="user/login"><button class="btn btn-outline-light ms-2"><i class="fa-solid fa-user me-2" routerLink="/user/login"></i>Login</button></a>
+                    </div>
+                    <div class=""  *ngIf="loginUsername">
+                        <a href="">
+                            <button class="btn btn-outline-light ms-2"><i class="fa-solid fa-power-off me-2" routerLink="/user/login"></i>{{loginUsername}}</button>
+                        </a>
+                    </div>
+    
+    
+                </div>
+         </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,33 @@
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.search{
+    width: 50%;
+}
+.nav-content{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+}
+@media (max-width:768px){
+   
+    .search{
+        margin-top: 40px;
+        width: 90%;
+        margin-left: 18px;
+      
+    }
+    .nav-content{
+        display: block;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+    }
+    .buttons{
+        margin-top: 40px;
+    }
+}
