@@ -31,4 +31,9 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  logout(){
+    sessionStorage.removeItem("username")
+    sessionStorage.removeItem("token")
+  }
+
 }

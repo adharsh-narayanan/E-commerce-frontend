@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DatashareService {
   
-  serverUrl = "https://e-commerce-server-1dvr.onrender.com"
+  serverUrl = "https://e-commerce-server-0lpa.onrender.com"
 
     //beahaviourSubject to load data to header 
 
